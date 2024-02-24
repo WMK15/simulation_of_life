@@ -16,8 +16,11 @@ import java.util.Random;
 public class Simulator {
 
     private static final double MYCOPLASMA_ALIVE_PROB = 0.25;
-    private static final double CHAM_ALIVE_PROB = 0.15;
-    private static final double HUMAN_ALIVE_PROB = 0.10;
+    private static final double CHAM_ALIVE_PROB = 0.50;
+    private static final double HUMAN_ALIVE_PROB = 0.60;
+    private static final double TREE_ALIVE_PROB = 0.80;
+    private static final double BIRD_ALIVE_PROB = 0.10;
+    private static final double TB_ALIVE_PROB = 0.00005;
     private List<Cell> cells;
     private Field field;
     private int generation;
@@ -45,7 +48,6 @@ public class Simulator {
      * Iterate over the whole field updating the state of each life form.
      */
     public void simOneGeneration() {
-        generation++;
         for (Iterator<Cell> it = cells.iterator(); it.hasNext(); ) {
             Cell cell = it.next();
             cell.act();
@@ -54,6 +56,7 @@ public class Simulator {
         for (Cell cell : cells) {
           cell.updateState();
         }
+        generation++;
     }
 
     /**
@@ -74,27 +77,26 @@ public class Simulator {
         for (int row = 0; row < field.getDepth(); row++) {
             for (int col = 0; col < field.getWidth(); col++) {
                 Location location = new Location(row, col);
-                int cellType = rand.nextInt(3);
+                int cellType = rand.nextInt(6);
           
                 if (cellType == 0) {
                     Mycoplasma myco = new Mycoplasma(field, location, Color.ORANGE);
-                    if (rand.nextDouble() <= MYCOPLASMA_ALIVE_PROB){
-                        cells.add(myco);
-                    } else {
-                        myco.setDead();
-                        cells.add(myco);
-                    }
+                    handleCellSpawn(myco, MYCOPLASMA_ALIVE_PROB);
                 } else if (cellType == 1) {
-                    Chameleon cham = new Chameleon(field, location, Color.GREEN);
-                    if (rand.nextDouble() <= CHAM_ALIVE_PROB) {
-                        cells.add(cham);
-                    } else {
-                        cham.setDead();
-                        cells.add(cham);
-                    }
-                } else {
+                    Chameleon cham = new Chameleon(field, location, Color.PURPLE);
+                    handleCellSpawn(cham, CHAM_ALIVE_PROB);
+                } else if (cellType == 2) {
                     Human human = new Human(field, location, Color.PINK);
                     handleCellSpawn(human, HUMAN_ALIVE_PROB);
+                } else if (cellType == 3) {
+                    Tree tree = new Tree(field, location, Color.GREEN);
+                    handleCellSpawn(tree, TREE_ALIVE_PROB);
+                } else if (cellType == 4) {
+                    Bird bird = new Bird(field, location, Color.LIGHTBLUE);
+                    handleCellSpawn(bird, BIRD_ALIVE_PROB);
+                } else {
+                    Tuberculosis tb = new Tuberculosis(field, location, Color.BLACK);
+                    handleCellSpawn(tb, TB_ALIVE_PROB);
                 }
             }
         }

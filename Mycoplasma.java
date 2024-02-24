@@ -6,9 +6,11 @@ import java.util.List;
  * Fun Fact: Mycoplasma are one of the simplest forms of life.  A type of
  * bacteria, they only have 500-1000 genes! For comparison, fruit flies have
  * about 14,000 genes.
+ * 
+ * FULFILS Base Task 1
  *
- * @author David J. Barnes, Michael Kölling & Jeffery Raphael
- * @version 2022.01.06
+ * @author Izzie Yip, Waseef Khan
+ * @version 2024.03.01
  */
 
 public class Mycoplasma extends Cell {
@@ -31,11 +33,20 @@ public class Mycoplasma extends Cell {
         setNextState(false);
     
         if (isAlive()) {
-            if (neighbours.size() == 2 || neighbours.size() == 3)
+            if (getInfected()) {
+                infectedAct();
+                return;
+            }
+            if (neighbours.size() == 2 || neighbours.size() == 3) {
                 setNextState(true);
+            }
         } else {
-            if (neighbours.size() == 3)
+            if (neighbours.size() == 3) {
+                setColor(Color.ORANGE);
+                resetAge();
+                resetInfected();
                 setNextState(true);
+            }
         }
     }
 }

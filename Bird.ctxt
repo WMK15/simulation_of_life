@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Bird
+comment0.text=\r\n\ A\ bird\ cell\ that\ has\ a\ hunger\ level\ that\ depletes\ unless\ it\ eats\ a\ chameleon.\r\n\ \r\n\ FULFILS\ Challenge\ Tasks\ 2.2\ -\ PARASITIC\ relationship\ with\ the\ Chameleon\ class.\r\n\r\n\ @author\ Izzie\ Yip,\ Waseef\ Khan\r\n\ @version\ 2024.03.01\r\n
+comment1.params=field\ location\ col
+comment1.target=Bird(Field,\ Location,\ javafx.scene.paint.Color)
+comment1.text=\r\n\ Create\ a\ new\ Mycoplasma.\r\n\r\n\ @param\ field\ The\ field\ currently\ occupied.\r\n\ @param\ location\ The\ location\ within\ the\ field.\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ This\ is\ how\ the\ Mycoplasma\ decides\ if\ it's\ alive\ or\ not\r\n
+numComments=3

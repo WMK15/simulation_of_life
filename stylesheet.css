@@ -1,0 +1,42 @@
+.button {
+    -fx-padding: 5px;
+    -fx-font-size: 14px; /* Set font size */
+    -fx-cursor: hand; /* Change cursor on hover */
+
+}
+
+#startButton {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+#startButton:hover {
+    -fx-background-color: rgb(151, 255, 157);
+}
+
+#stopButton {
+    -fx-background-color: #dd1b1b;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+#stopButton:hover {
+    -fx-background-color: rgb(255, 120, 110);
+}
+
+.horPane {
+    -fx-background-color: linear-gradient(to right, #247aa4, #305ec0);
+    -fx-padding: 0px 0px 10px 10px;
+}
+
+.infoPane {
+    -fx-background-color: rgb(38, 18, 55);
+    -fx-text-fill: white;
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-padding: 2px 0px 2px 5px;
+    -fx-font-weight: bold;
+}
