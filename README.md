@@ -1,9 +1,7 @@
 # Simulation of Life
 
-An extension to the Game of Life simulation to make it more interesting.
-
-- DUE DATE: 01/03/2024
-- AUTHORS: Waseef Khan, Izzie Yip
+An extension to the Game of Life simulation developed using Java and CSS using BlueJ for King's College London's 4CCS1PPA Coursework.
+- Authors: **Waseef Khan**, **Izzie Yip**
 
 ## Base Tasks
 
