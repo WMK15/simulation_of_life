@@ -1,6 +1,6 @@
 # Simulation of Life
 
-An extension the Game of Life simulation to make it more interesting.
+An extension to the Game of Life simulation to make it more interesting.
 
 - DUE DATE: 01/03/2024
 - AUTHORS: Waseef Khan, Izzie Yip
