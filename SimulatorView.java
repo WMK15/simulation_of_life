@@ -109,7 +109,7 @@ public class SimulatorView extends Application {
         scene.getStylesheets().add("./stylesheet.css");
         
         stage.setScene(scene);          
-        stage.setTitle("Life Simulation");
+        stage.setTitle("Simulation of Life");
         updateCanvas(simulator.getGeneration(), simulator.getField());
         
         stage.show();

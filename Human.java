@@ -69,7 +69,7 @@ public class Human extends Cell {
             // After the human has turned 70, it has a 50% chance of dying.
             if (currentAge >= 70 && rand.nextDouble() <= OLD_AGE_DEATH) {
                 setNextState(false);
-            // After the human has turned 16, it has a 5% chance of dying by accident.
+            // After the human has turned 16, it has a 10% chance of dying by accident.
             } else if (currentAge >= 16 && rand.nextDouble() <= ACCIDENTAL_DEATH_PROB) {
                 setNextState(false);
             } else {
@@ -78,13 +78,15 @@ public class Human extends Cell {
         } else {
             // if they have two neighbours who are 18+, a new human cell is born.
             List<Cell> humanNeighbours = getSpecificNeighbours(neighbours, Human.class);
-            Stream<Cell> adultNeighbours = humanNeighbours.stream().filter(h -> h.getAge() >= 18);
-            // OR if the cell has 5 neighbours of any kind, it will be reborn.
-            if (adultNeighbours.count() >= 2 || neighbours.size() == 4) {
-                setColor(Color.PINK);
-                resetAge();
-                resetInfected();
-                setNextState(true);
+            if (humanNeighbours != null) {
+                Stream<Cell> adultNeighbours = humanNeighbours.stream().filter(h -> h.getAge() >= 18);
+                // OR if the cell has 4 neighbours of any kind, it will be reborn.
+                if (adultNeighbours.count() >= 2 || neighbours.size() == 4) {
+                    setColor(Color.PINK);
+                    resetAge();
+                    resetInfected();
+                    setNextState(true);
+                } 
             }
         }
     }
